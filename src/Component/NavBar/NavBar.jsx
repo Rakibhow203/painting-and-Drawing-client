@@ -69,14 +69,14 @@ const {user, logOut} = Hook();
 
 
               <NavLink
-                to="/mypaints"
+                to="/myarts"
                 className={({ isActive }) =>
                   isActive
                     ? 'text-[#23BE0A] border border-[#22be0a4e] p-2 rounded'
                     : 'font-bold'
                 }
               >
-               My Paints
+               My Art & Craft List
               </NavLink>
               </ul>
             </div>
@@ -121,16 +121,15 @@ const {user, logOut} = Hook();
                 All Paints
               </NavLink>
 
-
-              <NavLink
-                to="/mypaints"
+ <NavLink
+                to="/myarts"
                 className={({ isActive }) =>
                   isActive
                     ? 'text-[#23BE0A] border border-[#22be0a4e] p-2 rounded'
                     : 'font-bold'
                 }
               >
-               My Paints
+               My Art & Craft List
               </NavLink>
               
             </ul>

@@ -69,7 +69,7 @@ const {user, logOut} = Hook();
 
 
               <NavLink
-                to="/myarts"
+                to="/myArts"
                 className={({ isActive }) =>
                   isActive
                     ? 'text-[#23BE0A] border border-[#22be0a4e] p-2 rounded'
@@ -81,8 +81,9 @@ const {user, logOut} = Hook();
               </ul>
             </div>
             <NavLink to="/" className="btn btn-ghost font-bold text-xl">
-              <span className="text-[#0ab5be8b]">Relaxation</span>
-              <span className=" text-[#b20abe9a]">Residence</span>
+              <span className=""><img src="https://i.ibb.co/n8h2kYh/images.png" className="rounded-full h-8" /></span>
+              <span className="text-[#2cf703f9]">Painting & </span>
+              <span className=" text-[#fe03fa]">Drawing</span>
             </NavLink>
           </div>
 
@@ -92,7 +93,7 @@ const {user, logOut} = Hook();
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? 'text-[#23BE0A] border border-[#22be0a4e] p-2 rounded '
+                    ? 'text-[#83ff5af9] border border-[#22f801c6] p-2 rounded '
                     : 'font-bold'
                 }
               >
@@ -102,7 +103,7 @@ const {user, logOut} = Hook();
                 to="/addp&d"
                 className={({ isActive }) =>
                   isActive
-                    ? 'text-[#23BE0A] border border-[#22be0a4e] p-2 rounded'
+                    ? 'text-[#83ff5af9] border border-[#22f801c6] p-2 rounded'
                     : 'font-bold'
                 }
               >
@@ -114,22 +115,22 @@ const {user, logOut} = Hook();
                 to="/allpaints"
                 className={({ isActive }) =>
                   isActive
-                    ? 'text-[#23BE0A] border border-[#22be0a4e] p-2 rounded'
+                    ? 'text-[#83ff5af9] border border-[#22f801c6] p-2 rounded'
                     : 'font-bold'
                 }
               >
-                All Paints
+                All Painting & Drawing
               </NavLink>
 
  <NavLink
                 to="/myarts"
                 className={({ isActive }) =>
                   isActive
-                    ? 'text-[#23BE0A] border border-[#22be0a4e] p-2 rounded'
+                    ? 'text-[#83ff5af9] border border-[#22f801c6] p-2 rounded'
                     : 'font-bold'
                 }
               >
-               My Art & Craft List
+               My Painting & Drawing
               </NavLink>
               
             </ul>

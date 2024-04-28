@@ -16,8 +16,8 @@ import LogIn from './Component/LogIn/LogIn.jsx';
 import Regitation from './Component/Regitaion/Regitation.jsx';
 import AddCraft from './Component/AddCraft/AddCraft.jsx';
 import AllArt from './Component/AllArt/AllArt.jsx';
+import MyArt from './Component/MyArt/MyArt.jsx';
 
-import myArtAndCraftList from './Component/My Art&Craft List/myArtAndCraftList.jsx';
 
 
 const router = createBrowserRouter([
@@ -63,16 +63,13 @@ const router = createBrowserRouter([
         path: '/allpaints',
         element: <AllArt></AllArt>
       },
-
-
       {
+  
+        path: '/myArts',
+       element:<MyArt></MyArt>
 
-        path: '/myarts',
-        element: <myArtAndCraftList></myArtAndCraftList>
+}
 
-      },
-      
-     
 
 
 ]

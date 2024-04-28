@@ -15,7 +15,7 @@ const AddCraft = ({ update }) => {
     
 
     const form = e.target;
-    const name = form.name.value;
+    const productName = form.productName.value;
     const category = form.category.value;
     const price = form.price.value;
     const time = form.time.value;
@@ -26,7 +26,7 @@ const AddCraft = ({ update }) => {
     const description = form.description.value;
     const email = user.email;
 
-    const info = { name, category, price,time, image, customization,rating,stock, email,description };
+    const info = { productName, category, price,time, image, customization,rating,stock, email,description };
     console.log(info);
 
     fetch('http://localhost:5000/addProduct', {
@@ -93,7 +93,7 @@ const AddCraft = ({ update }) => {
                 type="text"
                 placeholder="Item Name"
                 id="name"
-                name="name"
+                name="productName"
               />
 
               <label

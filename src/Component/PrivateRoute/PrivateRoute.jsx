@@ -1,11 +1,12 @@
 
 import Hook from "../Hook/Hook";
+import LogIn from "../LogIn/LogIn";
 
 
-const PrivateRoute = ({children) => {
+const PrivateRoute = ({ children }) => {
 const {user}=Hook()
   if (!user) {
-    return <Login></Login>;
+    return <LogIn></LogIn>
   }
   return <div>{children}</div>;
 }

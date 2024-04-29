@@ -17,6 +17,8 @@ import Regitation from './Component/Regitaion/Regitation.jsx';
 import AddCraft from './Component/AddCraft/AddCraft.jsx';
 import AllArt from './Component/AllArt/AllArt.jsx';
 import MyArt from './Component/MyArt/MyArt.jsx';
+import PrivateRoute from './Component/PrivateRoute/PrivateRoute.jsx';
+import ErrorPage from './Component/ErrorPage/ErrorPage.jsx';
 
 
 
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-
+errorElement:<ErrorPage></ErrorPage>,
     children: [
   
       {
@@ -53,7 +55,9 @@ const router = createBrowserRouter([
 
 
         path: '/addp&d',
-        element: <AddCraft></AddCraft>
+        element: <PrivateRoute>
+          <AddCraft></AddCraft>
+        </PrivateRoute>
       },
 
 
@@ -66,9 +70,11 @@ const router = createBrowserRouter([
       {
   
         path: '/myArts',
-       element:<MyArt></MyArt>
+        element: <PrivateRoute>
+         <MyArt></MyArt>
+       </PrivateRoute>
 
-}
+},
 
 
 

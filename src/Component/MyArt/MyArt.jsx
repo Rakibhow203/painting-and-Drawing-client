@@ -24,11 +24,12 @@ const MyArt = () => {
 )
 
   return (
-    <div className="gadgetContainer pt-10">
+    <div className=" pt-10">
       
       {
         item?.map(p => (
           <div key={p._id}>
+            <div>length: {p.length} </div>
             <div className="card w-96 bg-[#FFCDEA] shadow-xl border-2">
   <figure className="px-10 pt-10">
     <img src={p.image} alt="Shoes" className="rounded-xl" />

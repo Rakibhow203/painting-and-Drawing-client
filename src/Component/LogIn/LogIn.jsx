@@ -2,29 +2,44 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Social from "../Social/Social";
 import { useForm } from "react-hook-form";
 import Hook from "../Hook/Hook";
+import Swal from "sweetalert2";
 
 
 const LogIn = () => {
-  const {signInUser}=Hook()
-   const {
+  const { signInUser } = Hook();
+  const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
   const form = location?.state || '/';
+
   const onSubmit = data => {
     const { email, password } = data;
     signInUser(email, password).then(result => {
       if (result.user) {
-        navigate(form);
+        // Show success message using SweetAlert
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Successful',
+          text: 'You have successfully logged in!',
+        }).then(() => {
+          navigate(form);
+        });
       }
+    }).catch(error => {
+      // Handle login error
+      Swal.fire({
+        icon: 'error',
+        title: 'Login Failed',
+        text: error.message,
+      });
     });
   };
   return (
-    <div>
+      <div>
       <div className="hero min-h-screen bg-base-200">
         {<spner></spner>}
         <div className="hero-content flex-col ">
@@ -33,6 +48,7 @@ const LogIn = () => {
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+              {/* Your existing form code */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -80,7 +96,7 @@ const LogIn = () => {
               </div>
             </form>
             <div className=" text-2xl ml-14 mt-2">
-            <Social></Social>
+              <Social></Social>
             </div>
           </div>
         </div>

@@ -1,41 +1,81 @@
+
 import { useState } from "react";
 import Hook from "../Hook/Hook";
 import { useForm } from "react-hook-form";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-
+import Swal from "sweetalert2";
 
 const Regitation = () => {
-    const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const { createUser } = Hook();
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
   const form = location?.state || '/';
-  const onSubmit = data => {
+
+  const onSubmit = async (data) => {
     const { email, password } = data;
-    createUser(email, password).then(result => {
+
+    // Password validation
+    const uppercaseRegex = /[A-Z]/;
+    const lowercaseRegex = /[a-z]/;
+    if (
+      !uppercaseRegex.test(password) ||
+      !lowercaseRegex.test(password) ||
+      password.length < 6
+    ) {
+      // Show sweet alert for password requirements not met
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long',
+      });
+      return;
+    }
+
+    try {
+      // Call your createUser function
+      const result = await createUser(email, password);
+      
       if (result.user) {
-        navigate(form);
+        // Show success sweet alert or redirect
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Registration successful!',
+        }).then(() => {
+          navigate(form);
+        });
       }
-    });
+    } catch (error) {
+      // Handle registration error
+      console.error("Registration error:", error);
+      // Show error sweet alert
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Registration failed. Please try again.',
+      });
+    }
   };
   return (
-    <div>
-        <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Register!</h1>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+            {/* Your form inputs */}
             <div className="form-control">
-              <label className="label">
+              {/* Your input fields */}
+
+ <label className="label">
                 <span className="label-text">Name</span>
               </label>
               <input
@@ -106,7 +146,16 @@ const Regitation = () => {
                   Login
                 </NavLink>
               </p>
+            
+
+
+
+
+
             </div>
+
+            {/* Your existing form controls */}
+
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>
@@ -114,7 +163,7 @@ const Regitation = () => {
         </div>
       </div>
     </div>
-    </div>
+
   );
 };
 

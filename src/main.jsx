@@ -19,6 +19,7 @@ import AllArt from './Component/AllArt/AllArt.jsx';
 import MyArt from './Component/MyArt/MyArt.jsx';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute.jsx';
 import ErrorPage from './Component/ErrorPage/ErrorPage.jsx';
+import ProductByCategory from './Component/ProductByCategory/ProductByCategory.jsx';
 
 
 
@@ -60,6 +61,7 @@ errorElement:<ErrorPage></ErrorPage>,
         </PrivateRoute>
       },
 
+     
 
       {
 
@@ -67,6 +69,7 @@ errorElement:<ErrorPage></ErrorPage>,
         path: '/allpaints',
         element: <AllArt></AllArt>
       },
+
       {
   
         path: '/myArts',
@@ -76,6 +79,13 @@ errorElement:<ErrorPage></ErrorPage>,
 
 },
 
+       {
+// 2 works
+    path: '/product-by-category/:id',
+    loader: ({ params }) => fetch(`http://localhost:5000/getProduct/${params.id}`),
+         
+      element: <ProductByCategory></ProductByCategory>
+      },
 
 
 ]

@@ -2,6 +2,7 @@ import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
 import Hook from "../Hook/Hook";
+import Swal from "sweetalert2";
 
 
 const Social = () => {
@@ -9,22 +10,52 @@ const Social = () => {
   const location = useLocation();
   const form = location?.state || '/';
   const { googleLogin, githubLogin } = Hook();
-  const handleGoogleLogin = () => {
-    alert('Wow logIn successfully');
+
+ const handleGoogleLogin = () => {
     googleLogin().then(result => {
       if (result.user) {
         navigate(form);
+        Swal.fire({
+          title: 'Success!',
+          text: 'User logged in successfully with Google',
+          icon: 'success',
+          confirmButtonText: 'Cool',
+          
+        });
+        
       }
+    }).catch(error => {
+      Swal.fire({
+        title: 'Error!',
+        text: error.message,
+        icon: 'error',
+        confirmButtonText: 'Ok',
+      });
     });
   };
+
 
   const handleGithubLogin = () => {
     githubLogin().then(result => {
       if (result.user) {
         navigate(form);
+        Swal.fire({
+          title: 'Success!',
+          text: 'User logged in successfully with GitHub',
+          icon: 'success',
+          confirmButtonText: 'Cool',
+        });
       }
+    }).catch(error => {
+      Swal.fire({
+        title: 'Error!',
+        text: error.message,
+        icon: 'error',
+        confirmButtonText: 'Ok',
+      });
     });
   };
+
   return (
     <div>
        <div>

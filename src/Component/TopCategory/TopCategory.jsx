@@ -32,7 +32,7 @@ const TopCategory = () => {
         <h1 className="text-[#FB9AD1] font-bold text-4xl text-start mb-1">Painting and Drawing Item Section</h1>
       </div> 
       <h1 className="text-start m-4 ml-14 font-serif font-extrabold text-2xl text-red-200">Browse By Item's Category</h1>
-<div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-5">
+<div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3">
       {categories.map(category => (
         <Brand key={category._id} category={category} />
       ))}

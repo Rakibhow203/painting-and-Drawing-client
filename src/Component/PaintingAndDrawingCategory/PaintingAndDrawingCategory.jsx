@@ -9,7 +9,8 @@ const PaintingAndDrawingCategory = () => {
         
         <h2 className="text-3xl">Browse By Brands</h2>
 
-</div>
+      </div>
+      
 
 
 <div className="card w-96 bg-base-100 shadow-xl">

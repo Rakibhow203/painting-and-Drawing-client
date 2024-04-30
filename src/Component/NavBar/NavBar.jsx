@@ -76,7 +76,7 @@ const {user, logOut} = Hook();
                     : 'font-bold'
                 }
               >
-               My Art & Craft List
+               My Painting and Drawing
               </NavLink>
               </ul>
             </div>

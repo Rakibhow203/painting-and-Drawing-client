@@ -86,7 +86,7 @@ const AddCraft = ({ update }) => {
           <div className="flex gap-8 ">
             <div className="flex-1">
               <label className="block mb-2 dark:text-white" htmlFor="name">
-                item_Name
+                Painting item_Name
               </label>
               <input
                 className="w-full p-2 border rounded-md focus:outline-[#FF497C]"

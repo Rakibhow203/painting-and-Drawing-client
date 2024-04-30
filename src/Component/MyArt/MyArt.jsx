@@ -11,9 +11,9 @@ const MyArt = () => {
 
   const { user } = Hook() || {};
   // console.log(user);
-  const [item, setItem] = useState([]);
+  const [items, setItem] = useState([]);
   useEffect(() => {
-    
+
     fetch(`http://localhost:5000/myArtAndCraft/${user?.email}`)
       .then(res => res.json())
       .then(data => {
@@ -21,18 +21,15 @@ const MyArt = () => {
         setItem(data);
 
       });
-    
-  },[user]
-)
+
+  }, [user]
+  )
 
   return (
-    <div className=" pt-10 grid  lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1">
-      
-      {
-        item?.map(p => (
-         <ShowMyArts key={item._id} item= {item} ></ShowMyArts>
-        ))
-      }
+    <div className="pt-10 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-5">
+      {items.map(item => (
+        <ShowMyArts key={item._id} item={item} />
+      ))}
     </div>
   );
 };

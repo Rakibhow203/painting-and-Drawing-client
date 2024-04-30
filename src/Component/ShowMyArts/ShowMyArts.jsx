@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 
 
 const ShowMyArts = ({ item }) => {
   const { image, price, rating, productName } = item;
 
 
-  console.log(item);
+  // console.log(item);
   return (
     <div>
 
@@ -23,14 +24,16 @@ const ShowMyArts = ({ item }) => {
               <button className="btn  bg-red-500 w-32 btn-primary text-xl">Delete</button>
             </div> */}
 
-            <button className="btn btn-secondary">Secondary</button>
-            <button className="btn btn-secondary">Secondary</button>
+            <Link to={`/products/${item._id}`}>
+              <button className="btn btn-secondary">Update</button>
+            </Link>
+            <button className="btn btn-secondary">Delete</button>
 
           </div>
         </div>
       </div>
 
-    </div>
+    </div >
   );
 };
 

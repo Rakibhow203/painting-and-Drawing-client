@@ -20,6 +20,7 @@ import MyArt from './Component/MyArt/MyArt.jsx';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute.jsx';
 import ErrorPage from './Component/ErrorPage/ErrorPage.jsx';
 import ProductByCategory from './Component/ProductByCategory/ProductByCategory.jsx';
+import ProductsDetails from './Component/ProductsDetails/ProductsDetails.jsx';
 
 
 
@@ -27,16 +28,16 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
-  
+
       {
         path: '/',
         element: <Home></Home>
 
 
       },
-      
+
       {
 
         path: '/login',
@@ -61,7 +62,7 @@ errorElement:<ErrorPage></ErrorPage>,
         </PrivateRoute>
       },
 
-     
+
 
       {
 
@@ -71,24 +72,35 @@ errorElement:<ErrorPage></ErrorPage>,
       },
 
       {
-  
+
         path: '/myArts',
         element: <PrivateRoute>
-         <MyArt></MyArt>
-       </PrivateRoute>
+          <MyArt></MyArt>
+        </PrivateRoute>
 
-},
-
-       {
-// 2 works
-    path: '/product-by-category/:id',
-    loader: ({ params }) => fetch(`http://localhost:5000/getProduct/${params.id}`),
-         
-      element: <ProductByCategory></ProductByCategory>
       },
 
 
-]
+
+      {
+        // 2 works
+        path: '/product-by-category/:id',
+        loader: ({ params }) => fetch(`http://localhost:5000/getProduct/${params.id}`),
+
+        element: <ProductByCategory></ProductByCategory>
+      },
+
+      {
+
+        path: "/products/:id",
+        element: <ProductsDetails></ProductsDetails>,
+
+
+      },
+
+
+
+    ]
 
   },
 ]);
